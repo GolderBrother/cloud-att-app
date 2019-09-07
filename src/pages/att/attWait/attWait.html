@@ -1,0 +1,58 @@
+<!-- 待办 -->
+<ion-header>
+  <zk-nav-bar titleMsg="PAGE_ATTWAIT"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+  <!-- 下拉刷新器 begin-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'COMMON_PULLREF'|translate}}" refreshingSpinner="crescent"
+      refreshingText="{{'COMMON_REFRESHING'|translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- 下拉刷新器 end-->
+  <ion-list>
+    <!-- 这边的待办类型需要从 item 来确定 -->
+    <ng-container *ngIf="items.length > 0">
+      <ion-item class="att-wait-item" *ngFor="let item of items" tappable (click)="showDetail(item)">
+        <ng-container *ngIf="item.applyType==='0'">
+          <div class="item-l" item-start>
+            <h3 class="att-wait-first">{{item.personName}}</h3>
+            <p class="leave-time att-wait-sec">{{ 'ATT_WAIT_TIME'|translate }}：{{item.signDatetime}}</p>
+            <h3 class="att-wait-sec">{{'ATT_WAIT_MSG1'|translate}}</h3>
+            <h3 class="att-wait-sec">{{'ATT_WAIT_MSG2'|translate}}：{{item.remark}}</h3>
+          </div>
+          <div class="item-r">
+            <h3 item-end>
+              <zk-icon name="next"></zk-icon>
+            </h3>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="item.applyType==='1'">
+          <div class="item-l" item-start>
+            <h3 class="att-wait-first">
+              {{item.personName}}
+            </h3>
+            <div class="leave-time att-wait-sec">
+                {{'ATT_LEAVE_TIME'|translate}}：
+                <div>
+                  {{item.startDatetime}}
+                  <span class="separation-line"> - </span>
+                  {{item.endDatetime}}
+                </div>
+            </div>
+            <h3 class="att-wait-sec">{{'ATT_LEAVE_TODOTYPE'|translate}}</h3>
+            <h3 class="att-wait-sec">{{'ATT_LEAVE_REASON'|translate}}：{{item.remark}}</h3>
+          </div>
+          <div class="item-r">
+            <h3 item-end>
+              <zk-icon name="next"></zk-icon>
+            </h3>
+          </div>
+        </ng-container>
+      </ion-item>
+    </ng-container>
+    <ng-container *ngIf="items.length === 0">
+        <p text-center>{{'ATT_ATTWAIT_NOLIST' | translate}}</p>
+      </ng-container>
+  </ion-list>
+</ion-content>

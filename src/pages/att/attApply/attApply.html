@@ -1,0 +1,24 @@
+<!-- 我的申请 -->
+<ion-header>
+  <zk-nav-bar titleMsg="PAGE_ATTAPPLY"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+  <ion-list>
+    <ion-item class="att-apply-item" tappable (click)="goAttSignCard()">
+      <h3>
+        <zk-icon class="att-apply-icon" name="term"></zk-icon>{{'PAGE_ATTSIGNCARD'|translate}}
+      </h3>
+      <h3 item-end>
+        <zk-icon name="next"></zk-icon>
+      </h3>
+    </ion-item>
+    <ion-item class="att-apply-item" tappable (click)="goAttLeaveApply()">
+      <h3>
+        <zk-icon class="att-apply-icon" name="term"></zk-icon>{{'PAGE_ATTLEAVE'|translate}}
+      </h3>
+      <h3 item-end>
+        <zk-icon name="next"></zk-icon>
+      </h3>
+    </ion-item>
+  </ion-list>
+</ion-content>

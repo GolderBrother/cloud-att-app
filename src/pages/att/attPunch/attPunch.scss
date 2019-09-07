@@ -1,0 +1,165 @@
+page-attPunch {
+/**打卡**/
+
+    .content {
+        background:#fff;
+        .att-punch-bg {
+            width: 100%;
+            height: auto;  
+            
+        }
+
+        .att-punch-bg1 {
+            position: absolute;
+            bottom: -5rem;
+            width: 100%;
+            height: auto;
+            right: -5rem;
+        }
+
+        .att-punch-time {
+            color: #fff;
+            position: absolute;
+            right: 0px;
+            top: 0;
+            text-align: center;
+            padding-top: 2rem;
+            padding-right: 1rem;
+
+        }
+
+        .att-punch-time1 {
+            font-size: 4rem;
+        }
+
+        .att-punch-time2 {
+            font-size: 1.4rem;
+        }
+
+        .att-punch-bg2 {
+            position: relative;
+            transform: scale(0.4) translate(-18rem,-6rem);
+            width: 100%;
+            height: auto;
+        }
+
+        .att-punch-bg-div {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: -webkit-linear-gradient(#53afff, #44d0f3); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(#53afff, #44d0f3); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(#53afff, #44d0f3); /* Firefox 3.6 - 15 */
+            background: linear-gradient(#53afff, #44d0f3); /* 标准的语法 */
+        }
+
+        .att-punch-box {
+            width: 100%;
+            text-align: center;
+            transform: translateY(-4rem);
+        }
+
+        .att-punch-txt {
+            width: auto;
+            background: #ddd;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 1.5rem;
+            display: inline-block;
+            ion-icon {
+                padding-left: 1rem;
+                font-size: 2.2rem;
+                font-weight: bold;
+            } 
+        }
+
+        .att-punch-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .att-punch-loading {
+            width: 1.6rem;
+            height:1.6rem;
+            margin-right:1rem;;
+        }
+        .att-punch-list {
+            width: 100%;
+            padding-top: 1rem;
+            .att-punch-item {
+                width: 100%;
+                text-align: left;
+                padding: 1rem 2.5rem;
+                display: flex;
+                align-items: flex-start;
+                flex-wrap: nowrap;
+                .att-punch-txt1 {
+                    font-size: 2rem;
+                   
+                }
+
+                .att-punch-txt2 {
+                    border-radius: 50%;
+                    width:1rem;
+                    height:1rem;
+                    background: #53afff;
+                    display: inline-block;
+                    margin: 0.5rem 1rem;
+                }
+
+                .att-punch-txt3 {
+                    font-size: 2rem;
+                    display: inline-block;
+                    vertical-align: top;
+                    h4 {
+                        margin-top:0.5rem;
+                        margin-bottom: 0;
+                        font-size: 1.6rem;
+                        color:#868383;
+                    }
+                }
+            }
+        }
+
+        .att-punch-btn {
+            width: 100%;
+            height: auto;  
+            text-align: center;
+            display: flex;  
+            justify-content: center; 
+            transform: translateY(-5.5rem);
+            .att-punch-btn-out {
+                width: 11rem;
+                height: 11rem;
+                display: flex;
+                background: #fff;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 0 2rem #86c1f5;
+            }
+
+            .att-punch-btn-in {
+                width: 8.5rem;
+                height:8.5rem;
+                display: flex;
+                background: transparent;
+                border: 0.2rem solid #86c1f5;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: center;
+                color: #86c1f5;
+                font-size: 1.8rem;
+                cursor: pointer;
+                word-break: break-word;
+                
+            }
+
+            .att-punch-btn-in:active {
+                background: #cfe3f5;
+            }
+        }
+    }
+}

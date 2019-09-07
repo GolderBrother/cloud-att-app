@@ -1,0 +1,66 @@
+<ion-content> 
+  <div class="page-home-box">
+  <div *ngIf="bgPosition" class="page-home-slides" [style.height]="getSlideHeight()">
+   
+   <ion-slides pager="true" autoplay="3500" loop="true">
+      <ion-slide *ngIf="translate.currentLang==='zh'" style="background-image: url('assets/img/e2.png');">
+        <div text-center class="slide-item-box1">
+          <div class="slide-item-box1-txt1">{{'HOME_BANNER1_MSG1'|translate}}</div>
+          <div class="slide-item-box1-txt2">{{'HOME_BANNER1_MSG2'|translate}}</div>
+        </div>
+      </ion-slide>
+      <ion-slide *ngIf="translate.currentLang!=='zh'" style="background-image: url('assets/img/e2_en.png');">
+        <div text-center class="slide-item-box1">
+          <div class="slide-item-box1-txt1">{{'HOME_BANNER1_MSG1'|translate}}</div>
+          <div class="slide-item-box1-txt2">{{'HOME_BANNER1_MSG2'|translate}}</div>
+        </div>
+      </ion-slide>
+      <ion-slide style="background-image: url('assets/img/e3.png');">
+        <div text-center class="slide-item-box2">
+            {{'HOME_BANNER2_MSG1'|translate}}
+        </div>
+      </ion-slide>
+      <ion-slide style="background-image: url('assets/img/e4.png');">
+        <div text-center class="slide-item-box3">
+            {{'HOME_BANNER3_MSG1'|translate}}
+        </div>
+        <div class="slide-item-box3-txt1">
+          {{'HOME_BANNER3_ITEM1'|translate}}
+        </div>
+        <div class="slide-item-box3-txt2">
+          {{'HOME_BANNER3_ITEM2'|translate}}
+        </div>
+        <div class="slide-item-box3-txt3">
+          {{'HOME_BANNER3_ITEM3'|translate}}
+        </div>
+        <div class="slide-item-box3-txt4">
+          {{'HOME_BANNER3_ITEM4'|translate}}
+        </div>
+        <div class="slide-item-box3-txt5">
+          {{'HOME_BANNER3_ITEM5'|translate}}
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <!--<img src="assets/img/e1.png" style="width: 100%; height: 100%"/>-->
+  </div>
+  <!--
+  <arrow-animation duration="2s" autoplay="true" onlyOnce="homeArrow" time="3"></arrow-animation>
+  -->
+  <div class="page-home-module-box" [style.top]="getSlideHeight()">
+    <ion-card>
+      <ion-card-content style="border-top: 1px solid #eee;">
+        <!-- Add card content here! -->
+        <ion-row *ngFor="let rows of modules">
+          <div *ngFor="let child of rows" tappable class="page-item-box" (click)="openPage(child)">
+            <zk-icon name="{{child.icon}}" [style.background]="child.color" 
+              [style.border-color]="child.color">
+            </zk-icon>
+            <div>{{child.text|translate}}</div>
+          </div>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</div>
+</ion-content>

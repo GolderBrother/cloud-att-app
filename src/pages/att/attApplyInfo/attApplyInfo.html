@@ -1,0 +1,107 @@
+<!-- 申请信息 -->
+<ion-header>
+  <zk-nav-bar titleMsg="PAGE_ATTAPPLY_INFO"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+  <!-- 下拉刷新器 begin-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'COMMON_PULLREF'|translate}}" refreshingSpinner="crescent"
+      refreshingText="{{'COMMON_REFRESHING'|translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- 下拉刷新器 end-->
+  <div class="att-chart-cont">
+    <div padding>
+      <ion-segment [(ngModel)]="mode" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="wait">
+          {{'ATT_SIGN_WAIT'|translate}}
+        </ion-segment-button>
+        <ion-segment-button value="deal">
+          {{'ATT_DEAL'|translate}}
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div class="flex-auto">
+      <div class="att-applyInfo-box">
+        <div [style.display]="mode=='wait'?'':'none'" class="full">
+          <ion-list>
+            <!-- 模板中出现了两个 *ngIf 标签, 如果需要这样使用的话, 需要在ngIf标签父节点增加 ng-container 即可 -->
+            <ng-container *ngIf="applyType==='0'">
+              <ng-container *ngIf="waitList.length > 0">
+                <ion-item class="att-sign-item" *ngFor="let item of waitList">
+                  <h3>{{formatDate(item.signDatetime)}}</h3>
+                  <h3>{{'ATT_WAIT_MSG2'|translate}}：{{item.remark}}</h3>
+                  <h3>{{msg1}}<span class="att-sign-hlight">{{'COMMON_ADMIN'|translate}}</span>{{msg2}}</h3>
+                </ion-item>
+              </ng-container>
+              <ng-container *ngIf="waitList.length === 0">
+                <p text-center>{{'COMMON_NODATA'|translate}}</p>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="applyType==='1'">
+              <ng-container *ngIf="waitList.length > 0">
+                <ion-item class="att-sign-item" *ngFor="let item of waitList">
+                  <h3>
+                    {{formatDate(item.startDatetime)}}
+                    <span class="separation-line"> - </span>
+                    {{formatDate(item.endDatetime)}}
+                  </h3>
+                  <h3>{{'ATT_LEAVE_REASON'|translate}}：{{item.remark}}</h3>
+                  <h3>{{msg1}}<span class="att-sign-hlight">{{'COMMON_ADMIN'|translate}}</span>{{msg2}}</h3>
+                </ion-item>
+              </ng-container>
+              <ng-container *ngIf="waitList.length === 0">
+                <p text-center>{{'COMMON_NODATA'|translate}}</p>
+              </ng-container>
+            </ng-container>
+          </ion-list>
+        </div>
+        <div [style.display]="mode=='deal'?'':'none'" class="full">
+          <ion-list>
+            <ng-container *ngIf="applyType==='0'">
+              <ng-container *ngIf="signList.length > 0">
+                <ion-item class="att-sign-item" *ngFor="let item of signList">
+                  <h3>{{formatDate(item.signDatetime)}}</h3>
+                  <h3>{{'ATT_WAIT_MSG2'|translate}}：{{item.remark}}</h3>
+                  <h3>
+                    <span *ngIf="item.applyStatus!='2'" class="att-sign-hlight">{{'ATT_DEAL'|translate}}</span>
+                    <span *ngIf="item.applyStatus=='2'" class="att-sign-hlight">{{'COMMON_RETURN_MSG'|translate}}</span>
+                  </h3>
+                </ion-item>
+              </ng-container>
+              <ng-container *ngIf="signList.length === 0">
+                <p text-center>{{'COMMON_NODATA'|translate}}</p> 
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="applyType==='1'">
+              <ng-container *ngIf="signList.length > 0">
+                <ion-item class="att-sign-item" *ngFor="let item of signList">
+                  <h3>
+                    {{formatDate(item.startDatetime)}}
+                    <span class="separation-line"> - </span>
+                    {{formatDate(item.endDatetime)}}
+                  </h3>
+                  <h3>{{'ATT_LEAVE_REASON'|translate}}：{{item.remark}}</h3>
+                  <h3>
+                    <span *ngIf="item.applyStatus!='2'" class="att-sign-hlight">{{'ATT_DEAL'|translate}}</span>
+                    <span *ngIf="item.applyStatus=='2'" class="att-sign-hlight">{{'COMMON_RETURN_MSG'|translate}}</span>
+                  </h3>
+                </ion-item>
+              </ng-container>
+              <ng-container *ngIf="signList.length === 0">
+                <p text-center>{{'COMMON_NODATA'|translate}}</p>
+              </ng-container>
+            </ng-container>
+          </ion-list>
+        </div>
+      </div>
+
+      <!-- 上拉加载器 begin -->
+      <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+        <ion-infinite-scroll-content loadingText="{{'COMMON_LOADING1'|translate}}">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+      <!-- 上拉加载器 end -->
+    </div>
+  </div>
+</ion-content>

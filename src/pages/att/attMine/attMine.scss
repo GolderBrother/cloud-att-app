@@ -1,0 +1,231 @@
+// Page attMonth sass --考勤月历页面样式
+page-attMine {
+
+	.att-mine-head {
+		text-align: center;
+		background: #53afff;
+		padding: 1rem 0rem;
+		color: #fff
+	}
+
+	.att-mine-shift {
+		color:red;
+	}
+
+	.att-mine-shift1 {
+		background: #c2dcf7 !important;
+		color: red!important;
+	}
+
+	.att-mine-has {
+		background: #7ac143;
+		color:#fff;
+	}
+
+	.att-month-header {
+		.row {
+			.col {
+				color: #fff
+			}
+		}
+		background: #53afff;
+	}
+
+	.segment{
+        .segment-button.segment-activated {
+            background:#fff;
+            color:#53afff;
+            font-weight: bold;
+            border-top-width:0.2rem;
+        }
+
+        .segment-button {
+            border-width:0px;
+			color:$text-color;
+			border-color: #53afff;
+			background: $background-color;
+        }
+	}
+	
+	.content {
+		background:#fff;
+
+		.att-mine-cover {
+			position: absolute;
+			left: 0px;
+			right: 0px;
+			top: 0px;
+			bottom: 0px;
+			z-index: 1;
+			background: #fff;
+		}
+    }
+
+	.att-mine-txt1 {
+		background: $background-color;
+		padding: 1rem;
+	}
+
+	.att-mine-box1 {
+		zk-icon {
+			font-size: 2.8rem;
+			color:#53afff;
+		}
+		
+		.att-mine-txt3 {
+			width: 100%;
+			justify-content: center;
+			font-size: 1.8rem;
+			padding: 0.5rem;
+			display: flex;
+			align-items: center;
+			color: #53afff;
+			ion-icon {
+				font-size: 2.4rem;
+				color: #53afff;
+				padding-left: 0.5rem;
+			}
+		}
+	}
+
+	.att-mine-box2 {
+		zk-icon {
+			font-size: 2.4rem;
+		}
+
+		.att-mine-item1 {
+			display: flex;
+			align-items: center;
+			padding: 1rem;
+			border-left:$zk-border-style;
+			border-bottom:$zk-border-style;
+			label {
+				padding: 0 0.5rem;
+			}
+			ion-icon {
+				font-size: 2.4rem;
+				color: #53afff;
+				padding: 0rem 0.5rem;
+			}
+
+			.should {
+				color: #53afff;
+			}
+
+			.actual {
+				color: orange;
+			}
+
+			.absent {
+				color: #f7a5b9;
+			}
+
+			.miss {
+				color: #f7a5b9;
+			}
+		}
+	}
+
+	.att-mine-item {
+		padding: 1rem;
+		background: $background-color;
+		display: flex;
+		align-items: center;
+		margin-bottom: 0.5rem;
+		.flex-h {
+			flex: 1;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 2rem;
+			padding: 0 1rem;
+			div {
+				display: flex;
+				align-items: center;
+			}
+		}
+		ion-icon {
+			color:#53afff;
+			font-size: 2.8rem;
+			padding: 0 0.5rem
+		}
+	}
+
+	
+
+	.att-month-body {
+		background-color: #fff;
+
+		.col:nth-child(6), .col:nth-child(7)  {
+			color: #d2d2d2;
+		}
+
+		.col {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.att-month-today {
+			background-color: #e4f3d9;
+		}
+		.att-month-day {
+			border-radius: 50%;
+			text-align: center;
+			width: 2.5rem;
+			height: 2.5rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		.att-month-active {
+			background-color:orange!important;
+			color: #fff;
+		}
+		.att-month-pox {
+			line-height: 1;
+			.att-month-point {
+				border-radius: 50%;
+				width: 0.5rem;
+				height: 0.5rem;
+				background-color: #7ac143;
+				display: inline-block;
+			}
+		}
+		
+	}
+
+	.att-month-data-title {
+		position: relative;
+		top: 0.45rem;
+		left: 0.05rem;
+		zk-icon {
+			color:#7ac143;
+			font-size: 2.8rem;
+		}
+
+		.att-month-text {
+		    position: relative;
+		    bottom: 0.4rem;
+		    left: 0.4rem;
+		}
+	}
+
+	.att-month-item {
+		margin-left: 1.2rem;
+		border-left: 1px solid #ddd;
+		padding-top: 2rem;
+		.att-month-icon {
+			border-radius: 50%;
+		    background: #7ac143;
+		    width: 2.2rem;
+		    height: 2.2rem;
+		    line-height: 2.2rem;
+		    color: #fff;
+		    display: inline-block;
+		    left: -1.1rem;
+		    position: relative;
+		    text-align: center;
+		}
+	}
+}

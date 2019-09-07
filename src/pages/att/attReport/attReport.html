@@ -1,0 +1,16 @@
+<!-- 报表 -->
+<ion-header>
+    <zk-nav-bar titleMsg="PAGE_ATTREPORT"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+    <ion-list>
+        <ion-item  class="att-report-item" *ngFor="let item of items" tappable (click)="showDetail(item)">
+            <h2 class="title" text-center>
+                {{ item.title }}
+            </h2>
+            <h3 item-end>
+                <zk-icon name="next"></zk-icon>
+            </h3>
+        </ion-item>
+    </ion-list>
+</ion-content>

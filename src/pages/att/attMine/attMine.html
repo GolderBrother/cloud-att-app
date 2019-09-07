@@ -1,0 +1,96 @@
+<!-- 考勤 - 考勤月历页面 -->
+<ion-header>
+	<zk-nav-bar titleMsg="PAGE_ATTMINE">
+  	</zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+	<div class="att-mine-cover" [style.display]="show ? '':'none'"></div>
+	<div class="flex-v full">
+		<div class="att-mine-head">{{ toMonthText }}</div>
+		<ion-grid class="att-month-header">
+			<ion-row>
+				<ion-col text-center *ngFor="let w of weeks">
+					{{w|translate}}
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<ion-grid class="att-month-body" (swipe)="changeMonth($event)">
+			<ion-row *ngFor="let row of days">
+				<ion-col tappable (click)="activeClick(day)" text-center *ngFor="let day of row">
+					<div [ngClass]="{'att-month-day':true,'att-mine-has':hasShift(day), 'att-mine-shift1':day.attState,'att-month-active':activeDay && (activeDay.date.getDate() === day.text),'att-month-today':day.isToday}">
+						{{day.text}}
+					</div>
+					<!-- <div text-center class="att-month-pox">
+						<div class="att-month-point" [style.background-color]="getStateColor(day.state)"></div>
+					</div> -->
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<ion-row>
+			<ion-col class="att-mine-txt1">{{ todayText }}</ion-col>
+		</ion-row>
+		<div class="flex-auto flex-v">
+			<div>
+				<ion-segment [(ngModel)]="mode">
+					<ion-segment-button value="mode1">
+						{{'ATT_MINE_MODE1'|translate}}
+					</ion-segment-button>
+					<ion-segment-button value="mode2">
+						{{'ATT_MINE_MODE2'|translate}}
+					</ion-segment-button>
+				</ion-segment>
+			</div>
+			<div [style.display]="mode=='mode1'?'':'none'" class="flex-auto att-mine-box1">
+				<div padding class="att-mine-txt2">{{'ATT_SHIFT_CARD'|translate}}</div>
+				<div class="att-mine-item" *ngFor="let t of activeDay.items">
+					<zk-icon name="att-signed"></zk-icon>
+					<div class="flex-h">
+						<div [ngClass]="{'att-mine-shift':isErrorShift(t.startWorkStatus)}"><!-- <ion-icon name="list"></ion-icon> -->{{getShiftTime(t.startWorkTime)}}</div>
+						<div>─</div>
+						<div [ngClass]="{'att-mine-shift':isErrorShift(t.endWorkStatus)}"><!-- <ion-icon name="list"></ion-icon> -->{{getShiftTime(t.endWorkTime)}}</div>
+					</div>
+				</div>
+				<!-- <div class="att-mine-item">
+					<zk-icon name="att-signed"></zk-icon>
+					<div class="flex-h">
+						<div><ion-icon name="list"></ion-icon>13:30</div>
+						<div>─</div>
+						<div><ion-icon name="list"></ion-icon>18:00</div>
+					</div>
+				</div> -->
+				<ion-item no-lines>
+					<div class="att-mine-txt3" (click)="goToSign()">
+						<label>{{'ATT_SHIFT_SIGN'|translate}}</label> 
+						<ion-icon name="arrow-dropright"></ion-icon>
+					</div>
+				</ion-item>
+			</div>
+			<div [style.display]="mode=='mode2'?'':'none'" class="flex-auto att-mine-box2">
+				<ion-row *ngIf="showRow1">
+					<ion-col class="att-mine-item1">
+						<ion-icon name="checkmark-circle" class="should"></ion-icon>
+						<label>{{'ATT_SHIFT_SHOULD'|translate}}</label>
+						<label>{{shouldTime}}</label>
+					</ion-col>
+					<ion-col class="att-mine-item1">
+						<ion-icon name="checkmark-circle" class="actual"></ion-icon>
+						<label>{{'ATT_SHIFT_ACTUAL'|translate}}</label>
+						<label>{{actualTime}}</label>
+					</ion-col>
+				</ion-row>
+				<ion-row *ngIf="showRow2">
+					<ion-col class="att-mine-item1">
+						<ion-icon name="remove-circle" class="absent"></ion-icon>
+						<label>{{'ATT_SHIFT_ABSENT'|translate}}</label>
+						<label>{{absentTime}}</label>
+					</ion-col>
+					<ion-col class="att-mine-item1">
+						<ion-icon name="pin" class="miss"></ion-icon>
+						<label>{{'ATT_SHIFT_MISS'|translate}}</label>
+						<label>{{missTime}}</label>
+					</ion-col>
+				</ion-row>
+			</div>
+		</div>
+	</div>
+</ion-content>

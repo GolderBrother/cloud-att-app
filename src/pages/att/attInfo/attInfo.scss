@@ -1,0 +1,176 @@
+page-attInfo {
+/**考勤信息**/
+    .att-chart-box {
+        width:100%;
+        height:60%;
+        position: relative;
+        flex-wrap: nowrap;
+    }
+
+    .att-chart-row1 {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        
+    }
+
+    .segment {
+        .att-chart-seg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: normal;
+            white-space: normal;
+        }
+    }
+
+    .att-chart-box4 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .att-chart-label1 {
+        max-width: 33%;
+    }
+
+   /*  .att-chart-label {
+            
+    } */
+
+    .list ion-item-sliding {
+        border-bottom: $zk-border-style;
+    }
+
+    .content {
+        background:#fff;
+    }
+
+    .att-chart-box1, .att-chart-box3 {
+        position: relative;
+    }
+
+    .att-chart-box3 {
+        label {
+            color: #c3c1c1;
+            padding:0 1rem;
+            width: 25%;
+        }
+
+        .flex-h {
+            align-items: center;
+            padding: 0.5rem;
+        }
+
+        .color-late {
+            background: #e1e344;
+        }
+
+        .color-leave {
+            background: #83bcf3;
+        }
+
+        .color-trip {
+            background: #1180e0;
+        }
+
+        .color-early {
+            background: #1fa0a0;
+        }
+
+        .color-leakage {
+            background: #05f57d;
+        }
+
+        .color-out {
+            background: #181cf7;
+        }
+
+        .color-noShift {
+            background: #f3a908;
+        }
+
+        .color-addShift {
+            background: #9613ee;
+        }
+    }
+
+    .att-chart-box2 {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        label {
+            color: #c3c1c1;
+        }
+
+    }
+
+    .att-chart-cont {
+        width: 100%;
+        height:100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        .att-chart-item {
+            flex:1;
+            position: relative;
+            display: flex;
+        }
+    }
+
+    .full {
+        width: 100%;
+        height:100%;
+        position: relative;
+    }
+
+    .flex-v {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .flex-h {
+        display: flex;
+        position: relative;
+    }
+
+    .att-chart-title {
+        padding-left: 2rem;
+        font-weight: bold;
+    }
+
+    .flex-auto {
+        flex:1;
+        position: relative;
+    }
+
+    .att-chart-block {
+        display: inline-block;
+        padding: 0.5rem;
+        position: relative;
+    }
+
+    .segment{
+        position: relative;
+        .segment-button.segment-activated {
+            background:#fff;
+            color:$text-color;
+            font-weight: bold;
+            border-bottom-width:0.2rem;
+        }
+
+        .segment-button {
+            border-width:0px;
+            color:$text-color;
+        }
+    } 
+}

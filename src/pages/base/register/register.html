@@ -1,0 +1,53 @@
+<ion-header>
+    <zk-nav-bar titleMsg="PAGE_REGISTER"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+    <ion-row>
+        <ion-col col-12 text-center>
+           <!--  <div class="page-register-iconx">
+                <img class="page-register-icon" (click)="change()" [src]="photoData"/>
+            </div>   -->   
+            <ion-avatar>
+				<img (click)="change()" [src]="photoData">
+			</ion-avatar>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-12>
+            <form [formGroup]="form">
+                <ion-list>
+                    <ion-item>
+                        <ion-label>{{'REG_COMP_NAME'|translate}}</ion-label>
+                        <ion-input  name="compName" formControlName="compName" placeholder="{{'REG_SCAN'|translate}}"></ion-input>
+                        <zk-icon name="QR" class="barcode-scan-icon" item-right tappable (click)="codeScan()"></zk-icon>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'PERS_PHONE'|translate}}</ion-label>
+                        <ion-input name="mobile" formControlName="mobile" placeholder="{{'REG_PHONE_IN'|translate}}"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'REG_PIN'|translate}}</ion-label>
+                        <ion-input name="pin" formControlName="pin" placeholder="{{'REG_PIN_IN'|translate}}"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'REG_NAME'|translate}}</ion-label>
+                        <ion-input name="name" formControlName="name" placeholder="{{'REG_NAME_IN'|translate}}"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'COMMON_EMAIL'|translate}}</ion-label>
+                        <ion-input name="email" formControlName="email" placeholder="{{'REG_EMAIL_IN'|translate}}"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'REG_PASS'|translate}}</ion-label>
+                        <ion-input type="password" name="password" formControlName="password" placeholder="{{'REG_PASS_IN'|translate}}"></ion-input>
+                    </ion-item>
+                </ion-list>
+            </form>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <button ion-button block (click)="doRegister()">{{'COMMON_REGISTER'|translate}}</button> 
+        </ion-col>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,35 @@
+page-attAttendReport {
+/**每日出勤率报表**/
+
+.content {
+    background:#fff;
+}
+
+    .full {
+        width: 100%;
+        height:100%;
+        position: relative;
+    }
+
+    .flex-v {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .att-chart-title {
+        padding-left: 2rem;
+        font-weight: bold;
+    }
+
+    .att-chart-box1 {
+        height:55%;
+    }
+
+    .flex-auto {
+        flex:1;
+    }
+
+    .flex-h {
+        display: flex;
+    }
+}

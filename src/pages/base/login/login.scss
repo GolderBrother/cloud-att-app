@@ -1,0 +1,156 @@
+page-login {
+
+	.content {
+		background-color: $loginContentColor;
+	}
+
+	ion-input {
+	    .text-input {
+	      color:#fff;
+	    }
+	}
+
+	.list { 
+		.item-block:first-child {
+			border-top-style:none;
+		}
+
+		.item {
+			background-color: $loginContentColor;
+			color:#fff;
+			padding-left: 0px;
+			
+		}
+		.item-block {
+			.item-inner{
+				border-bottom:0.2rem solid #5a616d;
+				.input-wrapper {
+					.label {
+						color:#5a616d;
+						zk-icon {
+							font-size: 2rem;
+						}
+					}
+					input::-webkit-input-placeholder {
+					  /* WebKit browsers */
+					  color: #5a616d;
+					}
+					input:-moz-placeholder {
+					  /* Mozilla Firefox 4 to 18 */
+					  color: #5a616d;
+					}
+					input::-moz-placeholder {
+					  /* Mozilla Firefox 19+ */
+					  color: #5a616d;
+					}
+					input::-ms-input-placeholder {
+					  /* Internet Explorer 10+ */
+					  color: #5a616d;
+					}
+				}
+			}
+		}
+	}
+	.item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+	    box-shadow:none;
+		-webkit-box-shadow:none;
+		border-bottom:0.2rem solid #5a616d;
+	}
+	.toolbar-background{
+		background-color: $loginContentColor;
+	}
+	
+	.toolbar-title {
+		color: #fff;
+		text-align: center;
+	}
+	.login-form-box{
+		padding-top: 0px!important;
+		padding-bottom: 0px!important;
+	}
+	.login-header-bg {
+		text-align: center;
+		height: 37.5%;
+		width: 100%;
+		font-size: 20rem;
+		background-repeat: no-repeat;
+		background-size: 69% auto;
+		background-position: center center; 
+	}
+	.scroll-content {
+		overflow-y: auto;
+		left: 8%;
+		right: 8%;
+		padding-bottom:0px!important;
+	}
+
+	.page-login-btn button:first {
+		margin-top: 2rem;
+	}
+
+	.page-login-btn1 {
+		margin-bottom: 2rem;
+	}
+
+	.page-login-item {
+		display: flex;
+		align-items: center;
+	}
+
+	.page-login-btn {
+		.activated {
+			color:#fff;
+		}
+	}
+	.page-login-network {
+		border: 0.2rem solid #5d8449!important;
+		border-right: 0.25rem solid #5d8449!important;
+		color:#7ac143;
+		background-color: $loginContentColor;
+		margin-top: 1rem;
+	}
+	.page-login-version {
+		color: #7c8697;
+		margin-top: 2rem;
+	}
+
+	.page-login-rem {
+		color: #7a8a94;
+		font-size: 2.4rem;
+		:active {
+			color:#7ac143;
+		}
+	}
+
+	.page-login-rem-active {
+		color:#7ac143;
+	}
+
+	.page-login-bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 1.6rem;
+		margin-top: 2rem;
+		a {
+			color: #fff;
+		}
+
+		a:active {
+			color: #7ac143;
+		}
+		
+	}
+
+	.page-login-copyright {
+		color: #7c8697;
+		position: absolute;
+		bottom: 0.4rem;
+		left:0px;
+		right:0px;
+		font-size: 1rem;
+		.label {
+			margin:0;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+<!-- 打卡 -->
+<ion-header>
+    <zk-nav-bar titleMsg="PAGE_ATTPUNCH"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+    <div class="att-punch-bg-div">
+        <img class="att-punch-bg1" src="assets/img/bg6.png"/>
+        <img class="att-punch-bg2" src="assets/img/bg7.png"/>
+        <div class="att-punch-time">
+            <div class="att-punch-time1">{{time1}}</div>
+            <div class="att-punch-time2">{{time2}}</div>
+        </div>
+    </div>
+    <div class="att-punch-btn">
+        <div class="att-punch-btn-out">
+          <button (click)="punch()" class="att-punch-btn-in">{{'ATT_PUNCH_CHECKIN'|translate}}</button>
+        </div>
+    </div>
+    <div class="att-punch-box">
+        <div class="att-punch-txt" *ngIf="isReach">{{position}}</div>
+        <!-- <div class="att-punch-txt" *ngIf="isReach">已抵达签到地点，请签到</div>
+        <div class="att-punch-txt" *ngIf="!isReach">
+            <div class="att-punch-flex">
+                <img *ngIf="isLoading" class="att-punch-loading" src="assets/img/loading.gif"/>未抵达指定签到点<ion-icon (click)="getGPS()" name="sync"></ion-icon>
+            </div>
+        </div> -->
+        <div class="att-punch-list">
+            <div class="att-punch-item" *ngFor="let item of items">
+                <span class="att-punch-txt1">{{getTime(item.time)}}</span>
+                <div><div class="att-punch-txt2"></div></div>
+                <div class="att-punch-txt3">{{'ATT_PUNCH_IN'|translate}}<h4>{{item.attPlace}}</h4></div>
+                
+            </div>
+        </div>
+    </div>
+</ion-content>

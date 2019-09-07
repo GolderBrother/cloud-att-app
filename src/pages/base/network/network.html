@@ -1,0 +1,54 @@
+<ion-header>
+	<zk-nav-bar titleMsg="PAGE_NETWORK">
+  	</zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+	<div class="login-header-bg" 
+		[style.background-image]="'url('+logo+')'" 
+		[style.background-size]="imgLang=='zh'?'69% auto': 'auto 60%'">
+	</div>
+	<form [formGroup]="form">
+		<div padding class="login-form-box">
+			<ion-list >
+				<ion-item>
+					 <ion-label><zk-icon name="ip" fixed></zk-icon></ion-label>
+					 <ion-input type="text" name="address" formControlName="address"
+					  (focus)="inputFocus()"
+					  (blur)="inputBlur()"
+					 	placeholder="{{'NETWORK_ADDRESS'| translate}}">
+					 </ion-input>
+				</ion-item>
+				<ion-item>
+				 	 <ion-label><zk-icon name="QR" fixed></zk-icon></ion-label>
+					 <ion-input item-content type="text" name="barcode" formControlName="barcode"
+					 	(focus)="inputFocus()"
+					  	(blur)="inputBlur()"
+					 	placeholder="{{'NETWORK_REGCODE'| translate}}">
+					 </ion-input>
+					 <zk-icon name="scan" class="barcode-scan-icon" item-right tappable (click)="codeScan()"></zk-icon>
+				</ion-item>
+				<ion-item class="page-network-item">
+					 <ion-label><zk-icon name="admin" fixed></zk-icon></ion-label>
+					 <ion-input type="text" name="username" formControlName="username"
+					  (focus)="inputFocus()"
+					  (blur)="inputBlur()"
+					 	placeholder="{{'NETWORK_CLIENT'| translate}}">
+					 </ion-input>
+				</ion-item>
+				<div class="page-login-btn">
+					<button ion-button block (click)="testLink()">
+					{{ 'NETWORK_TEST'|translate }}
+					</button> 
+					<button class="page-login-network" (click)="save()" ion-button block>{{'COMMON_SAVE' | translate}}
+				</button>
+				</div>
+			</ion-list>
+			<div class="page-login-copyright" *ngIf="showCopyRight">
+				<ion-label class="page-login-version" text-center>{{versionMsg}}</ion-label>
+				<ion-label  text-center>V{{version}}</ion-label>
+				<ion-label  text-center>Copyright ©{{copyright}}.ZKTeco.Inc {{'COMMON_COPYRIGHT'|translate}}</ion-label>
+			</div>
+		</div>
+	</form>
+	
+</ion-content>

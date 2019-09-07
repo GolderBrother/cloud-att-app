@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "no-duplicate-variable": true,
+    "no-unused-variable": [
+      true
+    ]
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ],
+  "no-implicit-dependencies":[true,["providers", "pages"]],
+  "no-submodule-imports":[true,"providers", "pages"]
+}

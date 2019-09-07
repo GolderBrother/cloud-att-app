@@ -1,0 +1,41 @@
+page-attApplyInfo {
+/**补签卡|请假**/
+    .att-chart-cont {
+        width: 100%;
+        height:100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        .att-sign-item {
+            h3 {
+                font-weight: bold;
+            }
+            .att-sign-hlight {
+                color: #eb8c10
+            }
+            .label {
+                .separation-line {
+                    margin: 0 5px;
+                }
+            }
+        }
+    } 
+
+    .content {
+        background:#fff;
+    }
+
+    .segment{
+        .segment-button.segment-activated {
+            background:#fff;
+            color:$text-color;
+            font-weight: bold;
+            border-bottom-width:0.2rem;
+        }
+
+        .segment-button {
+            border-width:0px;
+            color:$text-color;
+        }
+    } 
+}

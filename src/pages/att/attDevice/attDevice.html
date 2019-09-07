@@ -1,0 +1,45 @@
+<!-- 设备 -->
+<ion-header>
+    <zk-nav-bar titleMsg="PAGE_ATTDEVICE"></zk-nav-bar>
+    <ion-row align-items-baseline class="acc-search-item">
+        <ion-col col-12>
+            <ion-item no-lines style="background-color: #eee">
+                <div item-start style="white-space: nowrap;">{{ 'COMMON_SUM'|translate }}: {{devCount}}</div>
+                <ion-searchbar item-content [(ngModel)]="filter" placeholder="{{ 'ATT_DEV_SNN'|translate }}" (ionInput)="search($event)"></ion-searchbar>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+</ion-header>
+<ion-content has-subheader="false">
+    <!-- 下拉刷新器 begin-->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content
+              pullingIcon="arrow-dropdown"
+              pullingText="{{ 'COMMON_PULLREF'|translate }}"
+              refreshingSpinner="crescent"
+              refreshingText="{{ 'COMMON_REFRESHING'|translate }}">
+            </ion-refresher-content>
+        </ion-refresher>
+        <!-- 下拉刷新器 end-->
+    
+        <ion-list no-lines>
+            <ion-item *ngFor="let item of items" tappable>
+                <div item-start class="acc-device-status">
+                    <ion-thumbnail class="device-img">
+                        <img *ngIf="item.onlineStatus=='1'" src="assets/img/att.png"/>
+                        <img *ngIf="item.onlineStatus!='1'" src="assets/img/att_over.png"/>
+                    </ion-thumbnail>	
+                </div>
+                <h2 class="att-dev-item"><label>{{'ATT_DEV_SN'|translate}}: </label> {{ item.devSn }}</h2>
+                <h2 class="att-dev-item"><label>{{'ATT_DEV_NAME'|translate}}: </label> {{ item.devName }}</h2>
+            </ion-item>
+            <!-- <ion-label *ngIf="isLast" style="color: #7ac143;font-size: 1.6rem;" text-center>----{{'COMMON_LIST_BOTTOM'|translate}}----
+            </ion-label> -->
+        </ion-list>
+        <!-- 上拉加载器 begin -->
+        <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+           <ion-infinite-scroll-content loadingText="{{'COMMON_LOADING1'|translate}}">
+           </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+        <!-- 上拉加载器 end -->
+</ion-content>

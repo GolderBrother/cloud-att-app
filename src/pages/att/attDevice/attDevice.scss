@@ -1,0 +1,17 @@
+page-attDevice {
+/**设备**/
+
+    ion-content.has-refresher > .scroll-content {
+        background-color: #fff;
+    }
+
+    .att-dev-item {
+        font-weight: bold;
+    }
+
+    .list {
+        .item {
+            border-bottom-color: $zk-border-color!important;
+        }
+    }
+}

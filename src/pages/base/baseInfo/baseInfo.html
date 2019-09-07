@@ -1,0 +1,42 @@
+<!-- 个人信息 -->
+<ion-header>
+    <zk-nav-bar titleMsg="PAGE_BASEINFO">
+        <button clear ion-button icon-only (click)="save()">
+                <zk-icon name="OK" style="color: #000; font-size: 2.4rem"></zk-icon>
+        </button>
+    </zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+    <ion-list>
+        <form [formGroup]="form">
+            <ion-item class="font-bold" >
+                <ion-label>{{'PERS_PHONE'|translate}}</ion-label>
+                <ion-input type="text" name="mobile" formControlName="mobile" disabled></ion-input> 
+            </ion-item>
+            <ion-item class="font-bold">
+                <ion-label>{{'COMMON_NAME'|translate}}</ion-label>
+                <ion-input type="text" name="name" formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item class="font-bold">
+                <ion-label>{{'COMMON_EMAIL'|translate}}</ion-label>
+                <ion-input type="text" name="email" formControlName="email"></ion-input>
+            </ion-item>
+<!--             <ion-item class="font-bold">
+                <ion-label>{{'USER_RESET_PSW'|translate}}</ion-label>
+                <ion-toggle name="resetPassword" formControlName="resetPassword"></ion-toggle>
+            </ion-item>
+            <ion-item class="font-bold"  *ngIf="form.value.resetPassword">
+                <ion-label>{{'USER_PSW_OLD'|translate}}</ion-label>
+                <ion-input type="password" name="oldPassword" formControlName="oldPassword"></ion-input>
+            </ion-item>
+            <ion-item class="font-bold" *ngIf="form.value.resetPassword">
+                <ion-label>{{'FOR_PASS'|translate}}</ion-label>
+                <ion-input type="password" name="newPassword" formControlName="newPassword"></ion-input>
+            </ion-item>
+            <ion-item class="font-bold" *ngIf="form.value.resetPassword">
+                <ion-label>{{'USER_SURE_PSW'|translate}}</ion-label>
+                <ion-input type="password" name="checkPassword" formControlName="checkPassword"></ion-input>
+            </ion-item> -->
+        </form>
+    </ion-list>
+</ion-content>

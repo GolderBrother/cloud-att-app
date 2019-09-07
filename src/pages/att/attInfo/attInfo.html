@@ -1,0 +1,161 @@
+<!-- 考勤信息 -->
+<ion-header>
+    <zk-nav-bar titleMsg="PAGE_ATTINFO"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+    <!-- 下拉刷新器 begin-->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="{{'COMMON_PULLREF'|translate}}"
+        refreshingSpinner="crescent"
+        refreshingText="{{'COMMON_REFRESHING'|translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+    <!-- 下拉刷新器 end-->
+    <div class="att-chart-cont">
+        <div padding style="position: relative;">
+            <ion-segment [(ngModel)]="mode" (ionChange)="segmentChanged($event)">
+                <ion-segment-button class="att-chart-seg" value="state">{{'ATT_INFO_MODE1'|translate}}</ion-segment-button>
+                <ion-segment-button class="att-chart-seg" value="emp">{{'ATT_INFO_MODE2'|translate}}</ion-segment-button>
+            </ion-segment>
+        </div>
+        <div class="att-chart-item">
+            <div [style.display]="mode=='state'?'':'none'" class="flex-v full">
+                <ion-item>   
+                    <ion-datetime (ionChange)="dateChange($event)" item-content displayFormat="YYYY-MM-DD" style="color: #BABABA" [(ngModel)]="currentTime"  cancelText="{{'COMMON_CANCEL'|translate}}" doneText="{{'COMMON_SURE'|translate}}">
+                    </ion-datetime>
+                    <zk-icon name="vis-calendar" style="color: #7ac143" item-right></zk-icon>
+                </ion-item>
+                <div class="flex-auto flex-v">
+                    <div class="att-chart-box flex-v">
+                        <div style="position:relative;display: block;">
+                            <h6 class="att-chart-title">{{'ATT_INFO_TITLE'|translate}}</h6>
+                        </div>
+                        <div class="att-chart-box1 flex-auto full">
+                            <div #AttChartContainer class="att-chart-box4 full"></div>
+                            <div class="att-chart-box2">
+                                <label>{{curStr}}</label>
+                                <h1>{{actualNum}}/{{shouldNum}}</h1>
+                                <label class="att-chart-label1">{{'ATT_INFO_COUNT'|translate}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-auto flex-v">
+                        <div>
+                            <h6 class="att-chart-title">{{'ATT_INFO_STATE'|translate}}</h6>
+                        </div>
+                       <div class="att-chart-box3 flex-auto">
+                            <div class="flex-h" *ngIf="lateCount>0">
+                                <label>{{'ATT_INFO_TYPE_LATE'|translate}}</label>
+                                <div class="flex-auto">
+                                    <div class="att-chart-block full color-late" [style.minWidth]="getMinWidth(lateCount)" [style.width]="getRate(lateCount)+'%'">{{lateCount}}</div>
+                                </div>
+                            </div>
+                            <div class="flex-h" *ngIf="leaveCount>0">
+                                <label>{{'ATT_INFO_TYPE_LEAVE'|translate}}</label>
+                                <div class="flex-auto">
+                                    <div class="att-chart-block full color-leave" [style.minWidth]="getMinWidth(leaveCount)" [style.width]="getRate(leaveCount)+'%'">{{leaveCount}}</div>
+                                </div>
+                            </div>
+                            <div class="flex-h" *ngIf="leakageCount>0">
+                                <label>{{'ATT_INFO_TYPE_LEAKAGE'|translate}}</label>
+                                <div class="flex-auto">
+                                    <div class="att-chart-block full color-leakage" [style.minWidth]="getMinWidth(leakageCount)" [style.width]="getRate(leakageCount)+'%'">{{leakageCount}}</div>
+                                </div>
+                            </div>
+                            <div class="flex-h" *ngIf="tripCount>0">
+                                <label>{{'ATT_INFO_TYPE_TRIP'|translate}}</label>
+                                <div class="flex-auto">
+                                    <div class="att-chart-block full color-trip" [style.minWidth]="getMinWidth(tripCount)" [style.width]="getRate(tripCount)+'%'">{{tripCount}}</div>
+                                </div>
+                            </div>
+                            <div class="flex-h" *ngIf="earlyCount>0">
+                                <label>{{'ATT_EARLY'|translate}}</label>
+                                <div class="flex-auto">
+                                    <div class="att-chart-block full color-early" [style.minWidth]="getMinWidth(earlyCount)" [style.width]="getRate(earlyCount)+'%'">{{earlyCount}}</div>
+                                </div>
+                            </div>
+                            <div class="flex-h" *ngIf="outCount>0">
+                                <label>{{'ATT_INFO_TYPE_OUT'|translate}}</label>
+                                <div class="flex-auto">
+                                    <div class="att-chart-block full color-out" [style.minWidth]="getMinWidth(outCount)" [style.width]="getRate(outCount)+'%'">{{outCount}}</div>
+                                </div>
+                            </div>
+                            <div class="flex-h" *ngIf="noShiftCount>0">
+                                <label>{{'ATT_INFO_TYPE_NOSHIFT'|translate}}</label>
+                                <div class="flex-auto">
+                                    <div class="att-chart-block full color-noShift" [style.minWidth]="getMinWidth(noShiftCount)" [style.width]="getRate(noShiftCount)+'%'">{{noShiftCount}}</div>
+                                </div>
+                            </div>
+                            <div class="flex-h" *ngIf="addShiftCount>0">
+                                <label>{{'ATT_INFO_TYPE_ADD'|translate}}</label>
+                                <div class="flex-auto">
+                                    <div class="att-chart-block full color-addShift" [style.minWidth]="getMinWidth(addShiftCount)" [style.width]="getRate(addShiftCount)+'%'">{{addShiftCount}}</div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>  
+                </div>
+            </div>
+            <div [style.display]="mode=='emp'?'':'none'" class="flex-v full">
+                <ion-item>   
+                    <ion-datetime (ionChange)="dateChange($event)" item-content displayFormat="YYYY-MM-DD" style="color: #BABABA" [(ngModel)]="currentTime"  cancelText="{{'COMMON_CANCEL'|translate}}" doneText="{{'COMMON_SURE'|translate}}">
+                    </ion-datetime>
+                    <zk-icon name="vis-calendar" style="color: #7ac143" item-right></zk-icon>
+                </ion-item>
+                <ion-list no-lines>
+                    <ion-item-sliding *ngFor="let item of items">
+                        <ion-item tappable>
+                            <ion-avatar item-start>
+                                <img [src]="item.photoUrl">
+                            </ion-avatar>
+                            <!-- <h4 *ngIf="lang !== 'zh'">
+                                <label class="page-person-label">{{'COMMON_NAME'|translate}}:</label>
+                                {{item.name}}&nbsp;{{item.lastName}}
+                            </h4>
+                            <h4 *ngIf="lang === 'zh'">
+                                <label class="page-person-label">{{'COMMON_NAME'|translate}}:</label>
+                                {{item.name}}
+                                <label class="page-person-label">{{'PERS_PIN'|translate}}:</label>
+                                {{item.pin}}
+                            </h4> -->
+                            <h4 class="att-chart-row1">
+                               <span>
+                                   <label class="att-chart-label">{{'COMMON_NAME'|translate}}:</label>
+                                   <label class="att-chart-label">{{item.name}}&nbsp;</label>
+                                   <label *ngIf="lang !== 'zh'" class="att-chart-label">{{item.lastName}}</label>
+                                </span>
+                                <span>
+                                    <label class="att-chart-label">{{'PERS_EMP_NUM'|translate}}:</label>
+                                    {{item.pin}}
+                                </span>
+                            </h4>
+                            <h4 class="att-chart-row1">
+                                <span>
+                                    <label class="att-chart-label">{{'ATT_INFO_START'|translate}}:</label>
+                                    {{item.startWorkTime}}
+                                </span>
+                            </h4>
+                            <h4 class="att-chart-row1">
+                                <span>
+                                    <label class="att-chart-label">{{'ATT_INFO_END'|translate}}:</label>
+                                    {{item.endWorkTime}}
+                                </span>
+                            </h4>
+                        </ion-item>
+                    </ion-item-sliding>
+                    <ion-label *ngIf="isLast" style="color: #7ac143;font-size: 1.6rem;" text-center>----{{'COMMON_LIST_BOTTOM'|translate}}----
+                    </ion-label>
+                </ion-list>
+
+                <!-- 上拉加载器 begin -->
+                <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+                <ion-infinite-scroll-content loadingText="{{'COMMON_LOADING1'|translate}}">
+                </ion-infinite-scroll-content>
+                </ion-infinite-scroll>
+                <!-- 上拉加载器 end -->
+            </div>
+        </div>
+    </div>
+</ion-content>

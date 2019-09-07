@@ -1,0 +1,27 @@
+@mixin flex-box($flexDirection, $alignItems, $justifyContent) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $flexDirection;
+    flex-direction: $flexDirection;
+    -webkit-box-align: $alignItems;
+    -webkit-align-items: $alignItems;
+    -ms-flex-align: $alignItems;
+    align-items: $alignItems;
+    -webkit-justify-content: $justifyContent;
+    justify-content: $justifyContent;
+  
+  
+    @if $flexDirection==row {
+      -webkit-box-orient: horizontal;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+    }
+  
+    @else {
+      -webkit-box-orient: vertical;
+      -ms-flex-pack: distribute;
+    }
+  }
+  

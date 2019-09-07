@@ -1,0 +1,41 @@
+<ion-header>
+    <zk-nav-bar titleMsg="PAGE_FORGET"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+    <ion-row>
+        <ion-col>
+            <form [formGroup]="form">
+                <ion-list>
+                    <ion-item>
+                        <ion-label>{{'REG_COMP_NAME'|translate}}</ion-label>
+                        <ion-input  name="compName" formControlName="compName" placeholder="{{'REG_SCAN'|translate}}"></ion-input>
+                        <zk-icon name="QR" class="barcode-scan-icon" item-right tappable (click)="codeScan()"></zk-icon>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'COMMON_USER'|translate}}</ion-label>
+                        <ion-input name="phone" formControlName="phone" placeholder="{{'FOR_PHONE_IN'|translate}}"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'FOR_PASS'|translate}}</ion-label>
+                        <ion-input type="password" name="newPassword" formControlName="newPassword" placeholder="{{'FOR_PASS_IN'|translate}}"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'FOR_NEWPASS'|translate}}</ion-label>
+                        <ion-input type="password" name="checkPassword" formControlName="checkPassword" placeholder="{{'FOR_NEWPASS_IN'|translate}}"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'FOR_CODE'|translate}}</ion-label>
+                        <ion-input name="verificationCode" formControlName="verificationCode" placeholder="{{'FOR_CODE_IN'|translate}}"></ion-input>
+                        <zk-icon name="term" class="barcode-scan-icon" item-right tappable (click)="getCheckCode($event)"></zk-icon>
+                        <!-- <button class="base-forget-btn" item-right type="button" tappable (click)="getCheckCode($event)">{{'FOR_CODE_GET'|translate}}</button> -->
+                    </ion-item>
+                </ion-list>
+            </form>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <button ion-button block (click)="doForget()">{{'FOR_GET'|translate}}</button> 
+        </ion-col>
+    </ion-row>
+</ion-content>

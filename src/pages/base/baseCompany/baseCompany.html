@@ -1,0 +1,28 @@
+<!-- 我的企业 -->
+<ion-header>
+    <zk-nav-bar titleMsg="PAGE_BASECOMPANY"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+    <ion-list>
+        <ion-item class="base-comp-item">
+            <h2>{{'REG_COMP_NAME'|translate}}</h2>
+            <h3>&nbsp;{{item.companyName}}</h3>
+        </ion-item>
+        <ion-item class="base-comp-item">
+            <h2>{{'REG_COMP_EMAIL'|translate}}</h2>
+            <h3>&nbsp;{{item.email}}</h3>
+        </ion-item>
+        <ion-item class="base-comp-item">
+            <h2>{{'REG_COMP_ADDR'|translate}}</h2>
+            <h3>&nbsp;{{item.address}}</h3>
+        </ion-item>
+        <ion-item class="base-comp-item">
+            <h2>{{'REG_COMP_CONT'|translate}}</h2>
+            <h3>&nbsp;{{item.contactName}}</h3>
+        </ion-item>
+        <ion-item class="base-comp-item">
+            <h2>{{'REG_COMP_PHONE'|translate}}</h2>
+            <h3>&nbsp;{{item.telephone}}</h3>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,25 @@
+page-attSign {
+/**补签**/
+    .content {
+        background:#fff;
+    }
+
+    zk-icon {
+        font-size: 2.4rem;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    textarea {
+        border: 0.1rem solid #b9b3b3;
+        width: 100%;
+    }
+
+    .att-sign-label {
+        position: relative;
+        display: block;
+        margin-bottom: 1rem;
+    }
+}

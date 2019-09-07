@@ -1,0 +1,45 @@
+<!-- 待办详情 -->
+<ion-header>
+  <zk-nav-bar titleMsg="PAGE_ATTWAITDETAIL"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+  <ion-list no-lines>
+    <ion-item class="font-bold">
+      <ion-label item-left>{{'ATT_APPLY'|translate}}</ion-label>
+      <span item-content>{{item.personName}}</span>
+    </ion-item>
+    <ion-item class="font-bold">
+      <ion-label item-left>{{'ATT_WAIT_TYPE'|translate}}</ion-label>
+      <span *ngIf="item.applyType==='0'" item-content>{{'PAGE_ATTSIGNCARD'|translate}}</span>
+      <span *ngIf="item.applyType==='1'" item-content>{{'PAGE_ATTLEAVE'|translate}}</span>
+    </ion-item>
+    <ng-container *ngIf="item.applyType==='0'">
+      <ion-item class="font-bold">
+        <ion-label item-left>{{'ATT_WAIT_TIME'|translate}}</ion-label>
+        <span item-content>{{item.signDatetime}}</span>
+      </ion-item>
+    </ng-container>
+    <ng-container *ngIf="item.applyType==='1'">
+      <ion-item class="font-bold">
+        <ion-label item-left>{{'ATT_LEAVE_TIME_FROM'|translate}}</ion-label>
+        <span item-content>{{item.startDatetime}}</span>
+      </ion-item>
+      <ion-item class="font-bold">
+        <ion-label item-left>{{'ATT_LEAVE_TIME_TO'|translate}}</ion-label>
+        <span item-content>{{item.endDatetime}}</span>
+      </ion-item>
+    </ng-container>
+    <ion-item class="font-bold">
+      <div>
+        <label class="att-wait-label">{{'ATT_REASON'|translate}}</label>
+        <div>
+          <textarea rows="7" disabled class="att-wait-text" value="{{item.remark}}"></textarea>
+        </div>
+      </div>
+    </ion-item>
+    <div padding>
+      <button ion-button block (click)="pass()">{{'COMMON_PASS'|translate}}</button>
+      <button ion-button block (click)="reject()">{{'COMMON_REFUSE'|translate}}</button>
+    </div>
+  </ion-list>
+</ion-content>

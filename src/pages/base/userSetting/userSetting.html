@@ -1,0 +1,51 @@
+<!-- 系统 - 用户设置页面 -->
+<ion-header>
+	<zk-nav-bar hideBackButton="true" titleMsg="PAGE_BASESET">
+		<button button-start clear ion-button icon-only (click)="goBack()">
+            <zk-icon name="nav_back"></zk-icon>
+        </button>
+  	</zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+	<ion-row>
+		<ion-col  col-12>
+			<ion-item  class="user-set-item1" tappable (click)="goToStatement()">
+				<ion-label item-content>
+					<zk-icon name="term"></zk-icon>
+					{{'USER_DECLAR'|translate}}
+				</ion-label>
+				<zk-icon item-end name="next"></zk-icon>
+			</ion-item>
+			<ion-item  class="user-set-item1" tappable (click)="goToChange()">
+				<ion-label item-content>
+					<zk-icon name="password"></zk-icon>
+					{{'PAGE_CHANGEPASS'|translate}}
+				</ion-label>
+				<zk-icon item-end name="next"></zk-icon>
+			</ion-item>
+			<ion-item no-lines tappable (click)="createLangOption()">
+				<ion-label item-content>
+					<zk-icon name="lang"></zk-icon>
+					{{'USER_LANGSET'|translate}}
+				</ion-label>
+				<zk-icon item-end [name]="showLang? 'down': 'next'"></zk-icon>
+			</ion-item>
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col  col-12>
+			<ion-item no-lines tappable (click)="goToAbout()">
+				<ion-label item-content>
+					<zk-icon name="about"></zk-icon>
+					{{'USER_ABOUT'|translate}}
+				</ion-label>
+				<zk-icon item-end name="next"></zk-icon>
+			</ion-item>
+		</ion-col>
+	</ion-row>
+	<div padding>
+	<button class="user-set-exit" ion-button block (click)="logOut()">
+		{{'COMMON_LOGOUT'|translate}}
+	</button>
+</div>
+</ion-content>

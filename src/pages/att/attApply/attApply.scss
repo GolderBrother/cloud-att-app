@@ -1,0 +1,33 @@
+page-attApply {
+
+  /**我的申请**/
+  .att-apply-item {
+    zk-icon {
+      font-size: 2.4rem;
+    }
+
+    h3 {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .att-apply-icon {
+      padding: 0rem 1rem;
+    }
+  }
+
+  .content {
+    background: #fff;
+  }
+}
+
+.list-ios>.item-block:last-child,
+.list-ios>.item-wrapper:last-child .item-block {
+  border-bottom: 0;
+}
+
+.list-ios>.item-block:last-child .item-inner,
+.list-ios>.item-wrapper:last-child .item-block .item-inner {
+  border-bottom: 0.55px solid #c8c7cc;
+}

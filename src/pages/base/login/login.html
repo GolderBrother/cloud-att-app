@@ -1,0 +1,60 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title></ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content has-subheader="false">
+	<div class="login-header-bg" 
+		[style.background-image]="'url('+logo+')'"
+		[style.background-size]="imgLang=='zh'?'69% auto': 'auto 60%'">
+	</div>
+	<form [formGroup]="form">
+		<div padding class="login-form-box">
+			<ion-list >
+				<ion-item>
+					 <ion-label [style.max-size]="imgLang=='zh'?'20rem': '30rem'"><zk-icon name="admin" fixed></zk-icon></ion-label>
+					 <ion-input type="text" name="phoneNumber" formControlName="phoneNumber"
+					  (focus)="inputFocus()"
+					  (blur)="inputBlur()"
+					 	placeholder="{{'LOGIN_INPUT_USER'| translate}}">
+					 </ion-input>
+				</ion-item>
+				<ion-item>
+				 	 <ion-label [style.max-size]="imgLang=='zh'?'20rem': '30rem'"><zk-icon name="zk-password" fixed></zk-icon></ion-label>
+					 <ion-input type="password" name="password" formControlName="password"
+					  (focus)="inputFocus()"
+					  (blur)="inputBlur()"
+					 	placeholder="{{'LOGIN_INPUT_PSW'| translate}}">
+					 </ion-input>
+				</ion-item>
+	<!-- 			<ion-item no-lines>
+					<zk-icon [ngClass]="{'page-login-rem':true,'page-login-rem-active':rememberMe}" (click)="rememberMe=!rememberMe" name="radioed" item-left></zk-icon>
+					<ion-label [style.color]="'#fff'">{{'LOGIN_REMPSW'|translate}}</ion-label>
+				</ion-item> -->
+				<div class="page-login-btn1">
+					<div class="page-login-bottom">
+						<div class="page-login-item">
+							<zk-icon [ngClass]="{'page-login-rem':true,'page-login-rem-active':rememberMe}" (click)="rememberMe=!rememberMe" name="radioed" item-left></zk-icon>
+							<label [style.color]="'#fff'">{{'LOGIN_REMPSW'|translate}}</label>
+						</div>
+						<a text-right (click)="forget()">{{'PAGE_FORGET'|translate}}</a>
+					</div>
+				</div>
+				<div class="page-login-btn">
+					<button ion-button block (click)="login()">
+					{{'COMMON_LOGIN' | translate}}
+					</button>
+					<!-- <div class="page-login-bottom">
+						<a (click)="register()">{{'COMMON_REGISTER'|translate}}</a>
+						<a (click)="forget()">{{'PAGE_FORGET'|translate}}</a>
+					</div> -->
+				</div>
+			</ion-list>
+			<div class="page-login-copyright" *ngIf="showCopyRight">
+				<!-- <ion-label class="page-login-version" text-center>{{versionMsg}}</ion-label> -->
+				<ion-label  text-center>v1.0.17</ion-label>
+				<ion-label  text-center>Copyright ©{{copyright}}.ZKTeco.Inc {{'COMMON_COPYRIGHT'|translate}}</ion-label>
+			</div>
+		</div>
+	</form>
+</ion-content>

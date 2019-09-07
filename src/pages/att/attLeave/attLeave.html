@@ -1,0 +1,33 @@
+<!-- 补签 -->
+<ion-header>
+  <zk-nav-bar titleMsg="PAGE_ATTLEAVE"></zk-nav-bar>
+</ion-header>
+<ion-content has-subheader="false">
+  <form [formGroup]="form">
+    <ion-item no-lines>
+      <label item-left>{{'ATT_LEAVE_TIME_FROM'|translate}}</label>
+      <ion-datetime class="flex-auto" item-content displayFormat="YYYY-MM-DD HH:mm" style="color: #BABABA"
+        formControlName="startDatetime" cancelText="{{'COMMON_CANCEL'|translate}}" doneText="{{'COMMON_SURE'|translate}}"
+        (ionBlur)="verifyTime()"></ion-datetime>
+      <zk-icon item-right name="vis-calendar" style="color: #7ac143"></zk-icon>
+    </ion-item>
+    <ion-item no-lines>
+      <label item-left>{{'ATT_LEAVE_TIME_TO'|translate}}</label>
+      <ion-datetime class="flex-auto" item-content displayFormat="YYYY-MM-DD HH:mm" style="color: #BABABA"
+        formControlName="endDatetime" cancelText="{{'COMMON_CANCEL'|translate}}" doneText="{{'COMMON_SURE'|translate}}"
+        (ionBlur)="verifyTime()"></ion-datetime>
+      <zk-icon item-right name="vis-calendar" style="color: #7ac143"></zk-icon>
+    </ion-item>
+    <ion-item no-lines>
+      <div>
+        <label class="att-sign-label">{{'ATT_LEAVE_REASON'|translate}}</label>
+        <div>
+          <textarea rows="7" placeholder="{{'ATT_LEAVE_REASON_REQUIRED'|translate}}" formControlName="remark"></textarea>
+        </div>
+      </div>
+    </ion-item>
+  </form>
+  <div padding>
+    <button ion-button block (click)="apply()">{{'ATT_APPLY_SUBMIT'|translate}}</button>
+  </div>
+</ion-content>
