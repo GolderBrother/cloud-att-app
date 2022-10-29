@@ -68,7 +68,7 @@
     "mx.ferreyra.callnumber": "0.0.2",
     "phonegap-plugin-barcodescanner": "^6.0.8",
     "rxjs": "5.4.0",
-    "socket.io-client": "^2.0.3",
+    "socket.io-client": "^2.5.0",
     "sw-toolbox": "3.6.0",
     "ts-md5": "^1.2.4",
     "zone.js": "0.8.12"
